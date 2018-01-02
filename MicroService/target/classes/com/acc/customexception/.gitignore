@@ -1,0 +1,11 @@
+/AddUserException.class
+/AddressNotFound.class
+/CancelMeetingException.class
+/GetAllUsersException.class
+/LoginException.class
+/MeetingAlreadyDeleteException.class
+/MeetingException.class
+/PinCodeNotFoundException.class
+/UpdateMeetingException.class
+/UpdateUserException.class
+/UserInfoNotFound.class
