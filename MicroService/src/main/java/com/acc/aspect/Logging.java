@@ -27,8 +27,7 @@ public class Logging {
 	public Object aroundTest(ProceedingJoinPoint pjp){
 		Object obj=null;
 		try {
-			logger.info("@Around: Before Class in around: "+ pjp.getTarget().getClass() );
-			logger.info("@Around: Before Method in around: "+ pjp.getSignature().getName() );
+			logger.info("@Around: Before Method in around: "+ pjp.getSignature().getName());
 			obj= pjp.proceed();
 			logger.info("@Around: Around AfterReturn here1: "+obj+" in around"+ pjp.getSignature().getName());
 		}catch (Throwable e) {
@@ -36,7 +35,6 @@ public class Logging {
 			logger.info("@Around: Around AfterThrow Message: "+e.getMessage() + " "+ pjp.getSignature().getName());
 		}
 		logger.info("@Around: Around After : "+obj+" in around"+ pjp.getSignature().getName()); //after
-		logger.info("@Around: Around After  Class in around: "+ pjp.getTarget().getClass() );
 		return obj;
 	}
 }

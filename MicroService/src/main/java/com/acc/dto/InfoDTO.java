@@ -7,429 +7,428 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class InfoDTO {
 
-	// user
-	private int userId;
+    // user
+    private int userId;
 
-	private String email;
+    private String email;
 
-	private String password;
+    private String password;
 
-	private String firstName;
+    private String firstName;
 
-	private String middleName;
+    private String middleName;
 
-	private String lastName;
+    private String lastName;
 
-	private String gender;
+    private String gender;
 
-	private String dob;
+    private String dob;
 
-	private String mobile;
+    private String mobile;
 
-	private String landline;
+    private String landline;
 
-	private Integer uniqueId;
+    private Integer uniqueId;
 
-	private String relation;
+    private String relation;
 
-	private String status;
+    private String status;
 
-	private String image;
+    private String image;
 
-	private String active;
+    private String active;
 
-	// address
+    // address
 
-	private int addressId;
+    private int addressId;
 
-	private String address1;
+    private String address1;
 
-	private String address2;
+    private String address2;
 
-	private String stat;
+    private String stat;
 
-	// pincode
-	private int pinCodeId;
+    // pincode
+    private int pinCodeId;
 
-	private String country;
+    private String country;
 
-	private String state;
+    private String state;
 
-	private String district;
+    private String district;
 
-	private String town;
+    private String town;
 
-	private String village;
+    private String village;
 
-	private String deleted;
+    private String deleted;
 
-	// meeting
-	private int dateId;
+    // meeting
+    private int dateId;
 
-	private Date startDate;
+    private Date startDate;
 
-	private String startTime;
+    private String startTime;
 
-	private Date endDate;
+    private Date endDate;
 
-	private String endTime;
+    private String endTime;
 
-	private String attendee;
+    private String attendee;
 
-	private String isActive;
+    private String isActive;
 
-	public InfoDTO() {
-		super();
+    public InfoDTO() {
+        super();
 
-	}
+    }
 
-	public String getActive() {
+    public String getActive() {
 
-		return active;
-	}
+        return active;
+    }
 
-	public void setActive(String active) {
+    public void setActive(String active) {
 
-		this.active = active;
-	}
+        this.active = active;
+    }
 
-	public String getStat() {
+    public String getStat() {
 
-		return stat;
-	}
+        return stat;
+    }
 
-	public void setStat(String stat) {
+    public void setStat(String stat) {
 
-		this.stat = stat;
-	}
+        this.stat = stat;
+    }
 
-	public String getDeleted() {
+    public String getDeleted() {
 
-		return deleted;
-	}
+        return deleted;
+    }
 
-	public void setDeleted(String deleted) {
+    public void setDeleted(String deleted) {
 
-		this.deleted = deleted;
-	}
+        this.deleted = deleted;
+    }
 
-	public String getIsActive() {
+    public String getIsActive() {
 
-		return isActive;
-	}
+        return isActive;
+    }
 
-	public void setIsActive(String isActive) {
+    public void setIsActive(String isActive) {
 
-		this.isActive = isActive;
-	}
+        this.isActive = isActive;
+    }
 
-	public int getUserId() {
+    public int getUserId() {
 
-		return userId;
-	}
+        return userId;
+    }
 
-	public void setUserId(int userId) {
+    public void setUserId(int userId) {
 
-		this.userId = userId;
-	}
+        this.userId = userId;
+    }
 
-	public String getEmail() {
+    public String getEmail() {
 
-		return email;
-	}
+        return email;
+    }
 
-	public void setEmail(String email) {
+    public void setEmail(String email) {
 
-		this.email = email;
-	}
+        this.email = email;
+    }
 
-	public String getPassword() {
+    public String getPassword() {
 
-		return password;
-	}
+        return password;
+    }
 
-	public void setPassword(String password) {
+    public void setPassword(String password) {
 
-		this.password = password;
-	}
+        this.password = password;
+    }
 
-	public int getPinCodeId() {
+    public int getPinCodeId() {
 
-		return pinCodeId;
-	}
+        return pinCodeId;
+    }
 
-	public void setPinCodeId(int pinCodeId) {
+    public void setPinCodeId(int pinCodeId) {
 
-		this.pinCodeId = pinCodeId;
-	}
+        this.pinCodeId = pinCodeId;
+    }
 
-	public String getFirstName() {
+    public String getFirstName() {
 
-		return firstName;
-	}
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
 
-		this.firstName = firstName;
-	}
+        this.firstName = firstName;
+    }
 
-	public String getMiddleName() {
+    public String getMiddleName() {
 
-		return middleName;
-	}
+        return middleName;
+    }
 
-	public void setMiddleName(String middleName) {
+    public void setMiddleName(String middleName) {
 
-		this.middleName = middleName;
-	}
+        this.middleName = middleName;
+    }
 
-	public String getLastName() {
+    public String getLastName() {
 
-		return lastName;
-	}
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
+    public void setLastName(String lastName) {
 
-		this.lastName = lastName;
-	}
+        this.lastName = lastName;
+    }
 
-	public String getGender() {
+    public String getGender() {
 
-		return gender;
-	}
+        return gender;
+    }
 
-	public void setGender(String gender) {
+    public void setGender(String gender) {
 
-		this.gender = gender;
-	}
+        this.gender = gender;
+    }
 
-	public String getDob() {
+    public String getDob() {
 
-		return dob;
-	}
+        return dob;
+    }
 
-	public void setDob(String dob) {
+    public void setDob(String dob) {
 
-		this.dob = dob;
-	}
+        this.dob = dob;
+    }
 
-	public String getMobile() {
+    public String getMobile() {
 
-		return mobile;
-	}
+        return mobile;
+    }
 
-	public void setMobile(String mobile) {
+    public void setMobile(String mobile) {
 
-		this.mobile = mobile;
-	}
+        this.mobile = mobile;
+    }
 
-	public String getLandline() {
+    public String getLandline() {
 
-		return landline;
-	}
+        return landline;
+    }
 
-	public void setLandline(String landline) {
+    public void setLandline(String landline) {
 
-		this.landline = landline;
-	}
+        this.landline = landline;
+    }
 
-	public Integer getUniqueId() {
+    public Integer getUniqueId() {
 
-		return uniqueId;
-	}
+        return uniqueId;
+    }
 
-	public void setUniqueId(Integer uniqueId) {
+    public void setUniqueId(Integer uniqueId) {
 
-		this.uniqueId = uniqueId;
-	}
+        this.uniqueId = uniqueId;
+    }
 
-	public String getRelation() {
+    public String getRelation() {
 
-		return relation;
-	}
+        return relation;
+    }
 
-	public void setRelation(String relation) {
+    public void setRelation(String relation) {
 
-		this.relation = relation;
-	}
+        this.relation = relation;
+    }
 
-	public String getStatus() {
+    public String getStatus() {
 
-		return status;
-	}
+        return status;
+    }
 
-	public void setStatus(String status) {
+    public void setStatus(String status) {
 
-		this.status = status;
-	}
+        this.status = status;
+    }
 
-	public String getImage() {
+    public String getImage() {
 
-		return image;
-	}
+        return image;
+    }
 
-	public void setImage(String image) {
+    public void setImage(String image) {
 
-		this.image = image;
-	}
+        this.image = image;
+    }
 
-	public int getAddressId() {
+    public int getAddressId() {
 
-		return addressId;
-	}
+        return addressId;
+    }
 
-	public void setAddressId(int addressId) {
+    public void setAddressId(int addressId) {
 
-		this.addressId = addressId;
-	}
+        this.addressId = addressId;
+    }
 
-	public String getAddress1() {
+    public String getAddress1() {
 
-		return address1;
-	}
+        return address1;
+    }
 
-	public void setAddress1(String address1) {
+    public void setAddress1(String address1) {
 
-		this.address1 = address1;
-	}
+        this.address1 = address1;
+    }
 
-	public String getAddress2() {
+    public String getAddress2() {
 
-		return address2;
-	}
+        return address2;
+    }
 
-	public void setAddress2(String address2) {
+    public void setAddress2(String address2) {
 
-		this.address2 = address2;
-	}
+        this.address2 = address2;
+    }
 
-	public String getCountry() {
+    public String getCountry() {
 
-		return country;
-	}
+        return country;
+    }
 
-	public void setCountry(String country) {
+    public void setCountry(String country) {
 
-		this.country = country;
-	}
+        this.country = country;
+    }
 
-	public String getState() {
+    public String getState() {
 
-		return state;
-	}
+        return state;
+    }
 
-	public void setState(String state) {
+    public void setState(String state) {
 
-		this.state = state;
-	}
+        this.state = state;
+    }
 
-	public String getDistrict() {
+    public String getDistrict() {
 
-		return district;
-	}
+        return district;
+    }
 
-	public void setDistrict(String district) {
+    public void setDistrict(String district) {
 
-		this.district = district;
-	}
+        this.district = district;
+    }
 
-	public String getTown() {
+    public String getTown() {
 
-		return town;
-	}
+        return town;
+    }
 
-	public void setTown(String town) {
+    public void setTown(String town) {
 
-		this.town = town;
-	}
+        this.town = town;
+    }
 
-	public String getVillage() {
+    public String getVillage() {
 
-		return village;
-	}
+        return village;
+    }
 
-	public void setVillage(String village) {
+    public void setVillage(String village) {
 
-		this.village = village;
-	}
+        this.village = village;
+    }
 
-	public int getDateId() {
+    public int getDateId() {
 
-		return dateId;
-	}
+        return dateId;
+    }
 
-	public void setDateId(int dateId) {
+    public void setDateId(int dateId) {
 
-		this.dateId = dateId;
-	}
+        this.dateId = dateId;
+    }
 
-	public Date getStartDate() {
+    public Date getStartDate() {
 
-		return startDate;
-	}
+        return startDate;
+    }
 
-	public void setStartDate(Date startDate) {
+    public void setStartDate(Date startDate) {
 
-		this.startDate = startDate;
-	}
+        this.startDate = startDate;
+    }
 
-	public String getStartTime() {
+    public String getStartTime() {
 
-		return startTime;
-	}
+        return startTime;
+    }
 
-	public void setStartTime(String startTime) {
+    public void setStartTime(String startTime) {
 
-		this.startTime = startTime;
-	}
+        this.startTime = startTime;
+    }
 
-	public Date getEndDate() {
+    public Date getEndDate() {
 
-		return endDate;
-	}
+        return endDate;
+    }
 
-	public void setEndDate(Date endDate) {
+    public void setEndDate(Date endDate) {
 
-		this.endDate = endDate;
-	}
+        this.endDate = endDate;
+    }
 
-	public String getEndTime() {
+    public String getEndTime() {
 
-		return endTime;
-	}
+        return endTime;
+    }
 
-	public void setEndTime(String endTime) {
+    public void setEndTime(String endTime) {
 
-		this.endTime = endTime;
-	}
+        this.endTime = endTime;
+    }
 
-	public String getAttendee() {
+    public String getAttendee() {
 
-		return attendee;
-	}
+        return attendee;
+    }
 
-	public void setAttendee(String attendee) {
+    public void setAttendee(String attendee) {
 
-		this.attendee = attendee;
-	}
+        this.attendee = attendee;
+    }
 
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
 
-		return "InfoDTO [userId=" + userId + ", email=" + email + ", password="
-				+ password + ", firstName=" + firstName + ", middleName="
-				+ middleName + ", lastName=" + lastName + ", gender=" + gender
-				+ ", dob=" + dob + ", mobile=" + mobile + ", landline="
-				+ landline + ", uniqueId=" + uniqueId + ", relation="
-				+ relation + ", status=" + status + ", image=" + image
-				+ ", addressId=" + addressId + ", address1=" + address1
-				+ ", address2=" + address2 + ", pinCodeId=" + pinCodeId
-				+ ", country=" + country + ", state=" + state + ", district="
-				+ district + ", town=" + town + ", village=" + village
-				+ ", dateId=" + dateId + ", startDate=" + startDate
-				+ ", startTime=" + startTime + ", endDate=" + endDate
-				+ ", endTime=" + endTime + ", attendee=" + attendee + "]";
-	}
+        return "InfoDTO [userId=" + userId + ", email=" + email + ", password="
+            + password + ", firstName=" + firstName + ", middleName="
+            + middleName + ", lastName=" + lastName + ", gender=" + gender
+            + ", dob=" + dob + ", mobile=" + mobile + ", landline=" + landline
+            + ", uniqueId=" + uniqueId + ", relation=" + relation + ", status="
+            + status + ", image=" + image + ", addressId=" + addressId
+            + ", address1=" + address1 + ", address2=" + address2
+            + ", pinCodeId=" + pinCodeId + ", country=" + country + ", state="
+            + state + ", district=" + district + ", town=" + town + ", village="
+            + village + ", dateId=" + dateId + ", startDate=" + startDate
+            + ", startTime=" + startTime + ", endDate=" + endDate + ", endTime="
+            + endTime + ", attendee=" + attendee + "]";
+    }
 
 	public InfoDTO(int userId, String email, String password, String firstName,
 			String middleName, String lastName, String gender, String dob,
@@ -476,4 +475,5 @@ public class InfoDTO {
 		this.isActive = isActive;
 	}
 
+    
 }

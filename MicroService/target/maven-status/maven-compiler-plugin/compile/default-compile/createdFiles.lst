@@ -22,7 +22,6 @@ com\acc\entity\AddressEntity.class
 com\acc\service\InfMeetingInfoService.class
 com\acc\customresponse\CustomResponse.class
 com\acc\customexception\UserInfoNotFound.class
-com\acc\swagger\conf\SwaggerConfig.class
 com\acc\customexception\MeetingAlreadyDeleteException.class
 com\acc\customexception\GetAllUsersException.class
 com\acc\service\MeetingInfoServiceImpl.class
