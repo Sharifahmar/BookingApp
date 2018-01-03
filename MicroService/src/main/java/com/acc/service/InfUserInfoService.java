@@ -1,5 +1,6 @@
 package com.acc.service;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import com.acc.customexception.PinCodeNotFoundException;
@@ -36,7 +37,7 @@ public interface InfUserInfoService {
 	 *
 	 * @see com.acc.service.UserInfoServiceInf#addUser(com.acc.dto.InfoDTO)
 	 */
-	Integer addUser(InfoDTO dto) throws UserInfoNotFound;
+	Integer addUser(InfoDTO dto) throws UserInfoNotFound,Exception;
 
 	/*
 	 * (non-Javadoc)
@@ -79,7 +80,7 @@ public interface InfUserInfoService {
 	 *
 	 * @see com.acc.service.UserInfoServiceInf#login(com.acc.dto.LoginDTO)
 	 */
-	InfoDTO login(LoginDTO loginDTO) throws UserInfoNotFound;
+	InfoDTO login(LoginDTO loginDTO) throws  UserInfoNotFound, NoSuchAlgorithmException;
 
 	/*
 	 * (non-Javadoc)

@@ -1,5 +1,7 @@
 package com.acc.service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -142,7 +144,7 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 	 * @see com.acc.service.InfUserInfoService#addUser(com.acc.dto.InfoDTO)
 	 */
 	@Override
-	public Integer addUser(InfoDTO dto) throws UserInfoNotFound {
+	public Integer addUser(InfoDTO dto) throws UserInfoNotFound , Exception{
 		try {
 			UserEntity userEntity = new UserEntity();
 			AddressEntity addressEntity = new AddressEntity();
@@ -155,6 +157,22 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 				addressEntity.setPinCodeEntity(pinCodeDAO.findOne(dto
 						.getPinCodeId()));
 			}
+			String password = dto.getPassword();
+
+	        MessageDigest md = MessageDigest.getInstance("MD5");
+	        md.update(password.getBytes());
+
+	        byte byteData[] = md.digest();
+
+	        //convert the byte to hex format method 1
+	        StringBuilder sb = new StringBuilder();
+	        for (int i = 0; i < byteData.length; i++) {
+	         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+	        }
+
+	        dto.setPassword(sb.toString());
+
+		
 			BeanUtils.copyProperties(dto, userEntity);
 			addressEntity.setUserEntity(userEntity);
 			BeanUtils.copyProperties(dto, addressEntity);
@@ -252,7 +270,12 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 		UserEntity entity = new UserEntity();
 		try {
 			entity = userDAO.findByUserId(id);
-			return entity == null;
+//			return entity == null;
+			if (entity == null) {
+				return false;
+			} else {
+				return true;
+			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw e;
@@ -275,7 +298,12 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 		UserEntity entity = new UserEntity();
 		try {
 			entity = userDAO.findUserByEmail(dto.getEmail());
-			return entity == null;
+			if (entity == null) {
+				return false;
+			} else {
+				return true;
+			}
+
 		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw e;
@@ -317,10 +345,29 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 	 * @see com.acc.service.InfUserInfoService#login(com.acc.dto.LoginDTO)
 	 */
 	@Override
-	public InfoDTO login(LoginDTO loginDTO) throws UserInfoNotFound {
+	public InfoDTO login(LoginDTO loginDTO) throws UserInfoNotFound, NoSuchAlgorithmException {
 		InfoDTO dto = new InfoDTO();
 		UserEntity userEntity;
 		userEntity = userDAO.loginByUserName(loginDTO.getUsername());
+		String password = loginDTO.getPassword();
+
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(password.getBytes());
+
+        byte byteData[] = md.digest();
+
+        //convert the byte to hex format method 1
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < byteData.length; i++) {
+         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        loginDTO.setPassword(sb.toString());
+
+
+		
+
+
 		if (userEntity != null) {
 			getInfoDTO(dto, userEntity, loginDTO);
 		} else {

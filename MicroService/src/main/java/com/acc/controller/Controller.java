@@ -1,5 +1,11 @@
 package com.acc.controller;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +64,14 @@ public class Controller {
 	 * @throws Exception
 	 */
 
+	@ApiOperation(httpMethod = "GET", value = "getAllUsers", nickname = "getAllUsers")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "none", value = "none", required = false, dataType = "none", paramType = "none", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.GET_ALL_USERS, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getAllUsers() throws UserInfoNotFound {
 
@@ -81,6 +95,14 @@ public class Controller {
 	 * @throws Exception
 	 */
 
+	@ApiOperation(httpMethod = "GET", value = "getPincodeById(@PathVariable(\"pin\") int pin)", nickname = "getPincodeById(@PathVariable(\"pin\") int pin)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "Integer", value = "an object", required = true, dataType = "Integer", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.GET_BY_PINCODE_ID, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getPincodeById(@PathVariable("pin") int pin)
 			throws PinCodeNotFoundException {
@@ -105,9 +127,18 @@ public class Controller {
 	 * @throws UserInfoNotFound
 	 * @throws Exception
 	 */
+
+	@ApiOperation(httpMethod = "POST", value = "addUser(@RequestBody InfoDTO dto)", nickname = "addUser(@RequestBody InfoDTO dto)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "dto", value = "an object", required = true, dataType = "InfoDTO", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.ADD_USER, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> addUser(@RequestBody InfoDTO dto)
-			throws UserInfoNotFound {
+			throws UserInfoNotFound,Exception {
 
 		response = new CustomResponse();
 		if (userInfoServImpl.isUserExist(dto)) {
@@ -130,7 +161,17 @@ public class Controller {
 	 * @return
 	 * @throws UserInfoNotFound
 	 * @throws Exception
+	 * 
 	 */
+
+	@ApiOperation(httpMethod = "PUT", value = "updateUser(@RequestBody InfoDTO dto)", nickname = "updateUser(@RequestBody InfoDTO dto)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "dto", value = "an object", required = true, dataType = "InfoDTO", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.UPDATE_USER, method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateUser(@RequestBody InfoDTO dto)
 			throws UserInfoNotFound {
@@ -156,6 +197,15 @@ public class Controller {
 	 * @param id
 	 * @return
 	 */
+
+	@ApiOperation(httpMethod = "DELETE", value = "deleteUser(@PathVariable(\"id\") int id)", nickname = "deleteUser(@PathVariable(\"id\") int id)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "Integer", value = "an object", required = true, dataType = "Integer", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.DELETE_USER, method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> deleteUser(@PathVariable("id") int id) {
 
@@ -174,6 +224,14 @@ public class Controller {
 
 	}
 
+	@ApiOperation(httpMethod = "POST", value = "addMeeting(@RequestBody InfoDTO dto)", nickname = "addMeeting(@RequestBody InfoDTO dto)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "dto", value = "an object", required = true, dataType = "InfoDTO", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.ADD_MEETING, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> addMeeting(@RequestBody InfoDTO dto)
 			throws MeetingException {
@@ -203,9 +261,18 @@ public class Controller {
 	 * @throws UserInfoNotFound
 	 * @throws Exception
 	 */
+
+	@ApiOperation(httpMethod = "POST", value = "login(@RequestBody LoginDTO loginDTO)", nickname = "login(@RequestBody LoginDTO loginDTO)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "dto", value = "an object", required = true, dataType = "InfoDTO", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.USER_LOGIN, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO)
-			throws UserInfoNotFound {
+			throws UserInfoNotFound,Exception {
 
 		response = new CustomResponse();
 		InfoDTO dto = userInfoServImpl.login(loginDTO);
@@ -225,6 +292,15 @@ public class Controller {
 	 * @return
 	 * @throws Exception
 	 */
+
+	@ApiOperation(httpMethod = "PUT", value = "updateMeeting(@RequestBody InfoDTO infoDTO)", nickname = "updateMeeting(@RequestBody InfoDTO infoDTO)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "infoDTO", value = "an object", required = true, dataType = "InfoDTO", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.UPDATE_MEETING, method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> updateMeeting(@RequestBody InfoDTO infoDTO)
 			throws UpdateMeetingException {
@@ -247,6 +323,15 @@ public class Controller {
 	 * @param wrapper
 	 * @return
 	 */
+
+	@ApiOperation(httpMethod = "PUT", value = "cancelMeeting(@RequestBody DateIdWrapper wrapper)", nickname = "cancelMeeting(@RequestBody DateIdWrapper wrapper)")
+	@ApiImplicitParams({ @ApiImplicitParam(name = "wrapper", value = "an object", required = true, dataType = "DateIdWrapper", paramType = "query param", defaultValue = "none") })
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),
+			@ApiResponse(code = 401, message = "Unauthorized"),
+			@ApiResponse(code = 403, message = "Forbidden"),
+			@ApiResponse(code = 404, message = "Not Found"),
+			@ApiResponse(code = 500, message = "Failure") })
 	@RequestMapping(value = UrlConstant.CANCEL_MEETING, method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> cancelMeeting(@RequestBody DateIdWrapper wrapper)
 			throws CancelMeetingException {
