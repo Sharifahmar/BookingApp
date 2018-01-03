@@ -1,19 +1,8 @@
 package com.acc.wrapper;
 
 public class DateIdWrapper {
-
+	
 	private int dateId;
-
-
-	public DateIdWrapper(int dateId) {
-        super();
-        this.dateId = dateId;
-    }
-
-    public DateIdWrapper() {
-        super();
-
-    }
 
 	public int getDateId() {
 		return dateId;
@@ -23,7 +12,15 @@ public class DateIdWrapper {
 		this.dateId = dateId;
 	}
 
+	public DateIdWrapper(int dateId) {
+		super();
+		this.dateId = dateId;
+	}
 
+	public DateIdWrapper() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {
@@ -51,7 +48,7 @@ public class DateIdWrapper {
 			return false;
 		return true;
 	}
-
-
+	
+	
 
 }

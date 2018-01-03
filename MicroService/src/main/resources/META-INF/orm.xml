@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="1.0" xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+    <named-query name="query1.findAllByUniqueId">
+        <query>select k from AddressEntity k where k.userEntity.uniqueId= :val1 </query>
+    </named-query>
+    
+      <named-query name="query2.findAllByUniqueId">
+        <query>select k from MeetingEntity k where k.userEntity.uniqueId= :val1 </query>
+    </named-query>
+    
+     <named-query name="query3.findAllByUserId">
+        <query>select k from MeetingEntity k where k.userEntity.userId= :val1 and k.isActive= 'true'</query>
+    </named-query>
+    
+        
+     <named-query name="query5.findAllByUniqueId">
+        <query>select k from UserEntity k where k.uniqueId= :val1 </query>
+    </named-query>
+    
+    
+    <named-query name="query6.findAllByUserId">
+        <query>select k from AddressEntity k where k.userEntity.userId=:val2 </query>
+    </named-query> 
+    
+    <named-query name="query4.findAllByEmailId">
+        <query>select k from UserEntity k where (k.email=?1 	OR 	k.mobile=?1) and k.active = 'true'</query>
+    </named-query>
+    
+    <named-query name="query9.getAddressDetailsById">
+		<query>select k from AddressEntity k where k.addressId= :val1 </query>
+	</named-query>
+	
+	<named-query name="query11.getPincodeById">
+		<query>select k from PinCodeEntity k where k.pinCodeId = :val1 </query>
+	</named-query>
+	
+	<named-query name="query8.getMeetingDetailsById">
+		<query>select k from MeetingEntity k where k.dateId= :val1 </query>
+	</named-query>
+	
+	<!-- <named-query name="query10.getUserById">
+		<query>select k from UserEntity k where k.userId= :val1 </query>
+	</named-query> -->
+    
+</entity-mappings>

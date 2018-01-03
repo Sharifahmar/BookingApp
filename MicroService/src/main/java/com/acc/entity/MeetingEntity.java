@@ -47,12 +47,6 @@ public class MeetingEntity {
 	@Column(name = "isactive")
 	private String isActive;
 
-	public MeetingEntity() {
-        super();
-    }
-
-
-
 	public int getDateId() {
 		return dateId;
 	}
@@ -111,7 +105,18 @@ public class MeetingEntity {
 		this.userEntity = userEntity;
 	}
 
-
+	public MeetingEntity(int dateId, Date startDate, String startTime,
+			Date endDate, String endTime, String attendee, UserEntity userEntity, String isActive) {
+		super();
+		this.dateId = dateId;
+		this.startDate = startDate;
+		this.startTime = startTime;
+		this.endDate = endDate;
+		this.endTime = endTime;
+		this.attendee = attendee;
+		this.userEntity = userEntity;
+		this.isActive=isActive;
+	}
 
 	public String getIsActive() {
 		return isActive;
@@ -125,7 +130,9 @@ public class MeetingEntity {
 
 
 
-
+	public MeetingEntity() {
+		super();
+	}
 
 	@Override
 	public String toString() {

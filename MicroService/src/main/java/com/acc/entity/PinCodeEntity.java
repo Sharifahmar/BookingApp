@@ -1,186 +1,220 @@
 package com.acc.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pincode")
+@Table(name="pincode")
 public class PinCodeEntity {
+	
+	
+	@Id
+	@Column(name="pincodeid")
+	private int pinCodeId;
+	
+	@Column(name="country")
+	private String country;
+	
+	@Column(name="state")
+	private String state;
+	
+	@Column(name="district")
+	private String district;
+	
+	@Column(name="town")
+	private String town;
+	
+	@Column(name="village")
+	private String village;
+	
+	@Column(name="isactive")
+	private String deleted;
+	
 
-    @Id
-    @Column(name = "pincodeid")
-    private int pinCodeId;
 
-    @Column(name = "country")
-    private String country;
 
-    @Column(name = "state")
-    private String state;
+	public String getDeleted() {
+		return deleted;
+	}
 
-    @Column(name = "district")
-    private String district;
 
-    @Column(name = "town")
-    private String town;
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
 
-    @Column(name = "village")
-    private String village;
 
-    @Column(name = "isactive")
-    private String deleted;
+	public int getPinCodeId() {
+		return pinCodeId;
+	}
 
-    public PinCodeEntity() {
-        super();
 
-    }
+	public void setPinCodeId(int pinCodeId) {
+		this.pinCodeId = pinCodeId;
+	}
 
-    public PinCodeEntity(int pinCodeId, String country, String state,
-                         String district, String town, String village,
-                         String deleted) {
-        super();
-        this.pinCodeId = pinCodeId;
-        this.country = country;
-        this.state = state;
-        this.district = district;
-        this.town = town;
-        this.village = village;
-        this.deleted = deleted;
 
-    }
+	public String getCountry() {
+		return country;
+	}
 
-    public String getDeleted() {
 
-        return deleted;
-    }
+	public void setCountry(String country) {
+		this.country = country;
+	}
 
-    public void setDeleted(String deleted) {
+	public String getState() {
+		return state;
+	}
 
-        this.deleted = deleted;
-    }
+	public void setState(String state) {
+		this.state = state;
+	}
 
-    public int getPinCodeId() {
+	public String getDistrict() {
+		return district;
+	}
 
-        return pinCodeId;
-    }
+	public void setDistrict(String district) {
+		this.district = district;
+	}
 
-    public void setPinCodeId(int pinCodeId) {
+	public String getTown() {
+		return town;
+	}
 
-        this.pinCodeId = pinCodeId;
-    }
+	public void setTown(String town) {
+		this.town = town;
+	}
 
-    public String getCountry() {
+	public String getVillage() {
+		return village;
+	}
 
-        return country;
-    }
+	public void setVillage(String village) {
+		this.village = village;
+	}
 
-    public void setCountry(String country) {
+	public PinCodeEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-        this.country = country;
-    }
 
-    public String getState() {
+	
 
-        return state;
-    }
 
-    public void setState(String state) {
+	
 
-        this.state = state;
-    }
+	public PinCodeEntity(int pinCodeId, String country, String state,
+			String district, String town, String village,
+			Set<AddressEntity> addressEntity, String deleted) {
+		super();
+		this.pinCodeId = pinCodeId;
+		this.country = country;
+		this.state = state;
+		this.district = district;
+		this.town = town;
+		this.village = village;
+		this.deleted=deleted;
+//		this.addressEntity = addressEntity;
+	}
 
-    public String getDistrict() {
 
-        return district;
-    }
 
-    public void setDistrict(String district) {
+	
 
-        this.district = district;
-    }
 
-    public String getTown() {
+	/*public AddressEntity getAddressEntity() {
+		return addressEntity;
+	}
 
-        return town;
-    }
 
-    public void setTown(String town) {
+	public void setAddressEntity(AddressEntity addressEntity) {
+		this.addressEntity = addressEntity;
+	}
+*/
 
-        this.town = town;
-    }
+	@Override
+	public String toString() {
+		return "PinCodeEntity [pinCodeId=" + pinCodeId + ", country=" + country
+				+ ", state=" + state + ", district=" + district + ", town="
+				+ town + ", village=" + village + "]";
+	}
 
-    public String getVillage() {
 
-        return village;
-    }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((country == null) ? 0 : country.hashCode());
+		result = prime * result
+				+ ((district == null) ? 0 : district.hashCode());
+		result = prime * result + pinCodeId;
+		result = prime * result + ((state == null) ? 0 : state.hashCode());
+		result = prime * result + ((town == null) ? 0 : town.hashCode());
+		result = prime * result + ((village == null) ? 0 : village.hashCode());
+		return result;
+	}
 
-    public void setVillage(String village) {
 
-        this.village = village;
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof PinCodeEntity))
+			return false;
+		PinCodeEntity other = (PinCodeEntity) obj;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (district == null) {
+			if (other.district != null)
+				return false;
+		} else if (!district.equals(other.district))
+			return false;
+		if (pinCodeId != other.pinCodeId)
+			return false;
+		if (state == null) {
+			if (other.state != null)
+				return false;
+		} else if (!state.equals(other.state))
+			return false;
+		if (town == null) {
+			if (other.town != null)
+				return false;
+		} else if (!town.equals(other.town))
+			return false;
+		if (village == null) {
+			if (other.village != null)
+				return false;
+		} else if (!village.equals(other.village))
+			return false;
+		return true;
+	}
 
-    @Override
-    public String toString() {
 
-        return "PinCodeEntity [pinCodeId=" + pinCodeId + ", country=" + country
-            + ", state=" + state + ", district=" + district + ", town=" + town
-            + ", village=" + village + "]";
-    }
+	
 
-    @Override
-    public int hashCode() {
 
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((country == null) ? 0 : country.hashCode());
-        result =
-            prime * result + ((district == null) ? 0 : district.hashCode());
-        result = prime * result + pinCodeId;
-        result = prime * result + ((state == null) ? 0 : state.hashCode());
-        result = prime * result + ((town == null) ? 0 : town.hashCode());
-        result = prime * result + ((village == null) ? 0 : village.hashCode());
-        return result;
-    }
+	/*public List<AddressEntity> getAddressEntity() {
+		return addressEntity;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
 
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (!(obj instanceof PinCodeEntity))
-            return false;
-        PinCodeEntity other = (PinCodeEntity) obj;
-        if (country == null) {
-            if (other.country != null)
-                return false;
-        } else if (!country.equals(other.country))
-            return false;
-        if (district == null) {
-            if (other.district != null)
-                return false;
-        } else if (!district.equals(other.district))
-            return false;
-        if (pinCodeId != other.pinCodeId)
-            return false;
-        if (state == null) {
-            if (other.state != null)
-                return false;
-        } else if (!state.equals(other.state))
-            return false;
-        if (town == null) {
-            if (other.town != null)
-                return false;
-        } else if (!town.equals(other.town))
-            return false;
-        if (village == null) {
-            if (other.village != null)
-                return false;
-        } else if (!village.equals(other.village))
-            return false;
-        return true;
-    }
+	public void setAddressEntity(List<AddressEntity> addressEntity) {
+		this.addressEntity = addressEntity;
+	}
+*/
+
+
+	
 
 }

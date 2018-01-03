@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package com.acc.service;
 
@@ -16,31 +16,23 @@ import com.acc.entity.AddressEntity;
  *
  */
 @Repository
-public class AddressInfoServiceImpl implements InfAddressInfoService {
-
+public class AddressInfoServiceImpl implements AddressInfoServiceInf {
+	
 	@Autowired
 	private AddressDAO addressDAO;
-
-	/*
-	 * (non-Javadoc)
-	 * 
+	
+	/* (non-Javadoc)
 	 * @see com.acc.service.AddressInfoServiceInf#isAddressActive(int)
 	 */
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.acc.service.InfAddressInfoService#isAddressActive(int)
-	 */
 	@Override
-	public boolean isAddressActive(int addressId) {
-
-		boolean status = false;
-		AddressEntity en = addressDAO.findByAddressId(addressId);
-		InfoDTO dto = new InfoDTO();
+	public boolean isAddressActive(int addressId){
+		boolean status=false;
+		AddressEntity en=addressDAO.findByAddressId(addressId);
+		InfoDTO dto=new InfoDTO();
 		BeanUtils.copyProperties(en, dto);
-		String stat = dto.getStat();
-		if ("true".equals(stat)) {
-			status = true;
+		String stat=dto.getStat();
+		if(stat.equals("true")){
+			status=true;
 		}
 		return status;
 	}

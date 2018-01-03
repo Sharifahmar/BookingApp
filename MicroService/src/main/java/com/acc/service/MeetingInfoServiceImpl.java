@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package com.acc.service;
 
@@ -8,9 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.acc.customexception.MeetingAlreadyDeleteException;
-import com.acc.customexception.MeetingException;
-import com.acc.customexception.UserInfoNotFound;
 import com.acc.dao.MeetingDAO;
 import com.acc.dao.UserDAO;
 import com.acc.dto.InfoDTO;
@@ -22,7 +19,7 @@ import com.acc.entity.UserEntity;
  *
  */
 @Repository
-public class MeetingInfoServiceImpl implements InfMeetingInfoService {
+public class MeetingInfoServiceImpl implements MeetingInfoServiceInf {
 	@Autowired
 	private MeetingDAO meetingDAO;
 
@@ -31,23 +28,11 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 
 	Logger log = Logger.getLogger(MeetingInfoServiceImpl.class);
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/* (non-Javadoc)
 	 * @see com.acc.service.MeetingInfoServiceInf#getMeetingById(int)
 	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.demo#getMeetingById(int)
-	 */
-
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#getMeetingById(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#getMeetingById(int)
-	 */
 	@Override
-	public InfoDTO getMeetingById(int id) throws UserInfoNotFound {
+	public InfoDTO getMeetingById(int id) throws Exception {
 		InfoDTO dto = null;
 		try {
 			MeetingEntity men = meetingDAO.findMeetingId(id);
@@ -57,35 +42,23 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			throw e;
+			throw (e);
 		}
 		return dto;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/* (non-Javadoc)
 	 * @see com.acc.service.MeetingInfoServiceInf#isMeetingActive(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.demo#isMeetingActive(int)
-	 */
-
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#isMeetingActive(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#isMeetingActive(int)
 	 */
 	@Override
 	public boolean isMeetingActive(int dateId) {
-		boolean status;
+		boolean status = false;
 		MeetingEntity en = meetingDAO.findByDateId(dateId);
 		InfoDTO dto = new InfoDTO();
 		BeanUtils.copyProperties(en, dto);
 		String stat = dto.getIsActive();
 		log.debug("Getting status: [" + stat + "]");
-		if ("true".equals(stat)) {
+		if (stat.equals("true")) {
 			status = true;
 		} else {
 			status = false;
@@ -94,47 +67,27 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 		return status;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * com.acc.service.MeetingInfoServiceInf#addMeeting(com.acc.dto.InfoDTO)
-	 */
 	/* (non-Javadoc)
-	 * @see com.acc.service.demo#addMeeting(com.acc.dto.InfoDTO)
-	 */
-
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#addMeeting(com.acc.dto.InfoDTO)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#addMeeting(com.acc.dto.InfoDTO)
+	 * @see com.acc.service.MeetingInfoServiceInf#addMeeting(com.acc.dto.InfoDTO)
 	 */
 	@Override
-	public Integer addMeeting(InfoDTO dto) throws MeetingException {
+	public Integer addMeeting(InfoDTO dto) throws Exception {
+
 		MeetingEntity meetingEntity = new MeetingEntity();
-		UserEntity userEntity = userDAO.findByUserId(dto.getUserId());
+		UserEntity userEntity = new UserEntity();
+
+		userEntity = userDAO.findByUserId(dto.getUserId());
+
 		meetingEntity.setUserEntity(userEntity);
 		BeanUtils.copyProperties(dto, meetingEntity);
+		// System.out.println("1...>"+meetingEntity);
 		MeetingEntity entity = meetingDAO.save(meetingEntity);
 		return entity.getDateId();
+
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * com.acc.service.MeetingInfoServiceInf#updateMeeting(com.acc.dto.InfoDTO)
-	 */
 	/* (non-Javadoc)
-	 * @see com.acc.service.demo#updateMeeting(com.acc.dto.InfoDTO)
-	 */
-
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#updateMeeting(com.acc.dto.InfoDTO)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#updateMeeting(com.acc.dto.InfoDTO)
+	 * @see com.acc.service.MeetingInfoServiceInf#updateMeeting(com.acc.dto.InfoDTO)
 	 */
 	@Override
 	public InfoDTO updateMeeting(InfoDTO dto) {
@@ -142,8 +95,10 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 		try {
 			UserEntity entity = userDAO.findOne(dto.getUserId());
 			UserEntity entity2 = new UserEntity();
+			MeetingEntity mEntity = new MeetingEntity();
 			if (entity != null) {
-				MeetingEntity mEntity = meetingDAO.findMeetingId(dto.getUserId());
+				mEntity = meetingDAO.findMeetingId(dto.getUserId());
+				// System.out.println("1.....>"+mEntity);
 				if (mEntity != null) {
 					BeanUtils.copyProperties(dto, mEntity);
 					BeanUtils.copyProperties(dto, entity2);
@@ -163,27 +118,15 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 		return dto1;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/* (non-Javadoc)
 	 * @see com.acc.service.MeetingInfoServiceInf#cancelMeetingServiceImpl(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.demo#cancelMeetingServiceImpl(int)
-	 */
-
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#cancelMeetingServiceImpl(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfMeetingInfoService#cancelMeetingServiceImpl(int)
 	 */
 	@Override
 	public int cancelMeetingServiceImpl(int dateId) {
-		int result;
+		int result = 0;
 		boolean stat = isMeetingActive(dateId);
-		if (!stat) {
-			throw new MeetingAlreadyDeleteException("Meeting already deleted!");
+		if (stat == false) {
+			throw new RuntimeException("Meeting already deleted!");
 		}
 		MeetingEntity en = meetingDAO.findOne(dateId);
 		en.setIsActive("false");
@@ -192,5 +135,7 @@ public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 		InfoDTO dto = new InfoDTO();
 		BeanUtils.copyProperties(en, dto);
 		return result;
+
 	}
+
 }

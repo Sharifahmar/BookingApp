@@ -9,16 +9,18 @@ import com.acc.entity.AddressEntity;
 import com.acc.entity.MeetingEntity;
 
 @Repository
-public interface MeetingDAO
-    extends CrudRepository<MeetingEntity, Integer> {
+public interface MeetingDAO extends CrudRepository<MeetingEntity, Integer> {
 
-    @Query(name = "query2.findAllByUniqueId")
-    public AddressEntity findId(@Param("val1") int uid);
+	@Query(name = "query2.findAllByUniqueId")
+	public AddressEntity findId(@Param("val1") int uid);
 
-    @Query(name = "query3.findAllByUserId")
-    public MeetingEntity findMeetingId(@Param("val1") int uid);
+	@Query(name = "query3.findAllByUserId")
+	public MeetingEntity findMeetingId(@Param("val1") int uid);
 
-    @Query(name = "query8.getMeetingDetailsById")
-    public MeetingEntity findByDateId(@Param("val1") int dateId);
+	/*@Query(name = "query7.cancelMeetingQuery")
+	public int cancelMeeting(@Param("val1") int dateId);*/
+	
+	@Query(name="query8.getMeetingDetailsById")
+	public MeetingEntity findByDateId(@Param("val1") int dateId);
 
 }

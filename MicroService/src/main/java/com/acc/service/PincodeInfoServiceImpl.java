@@ -1,5 +1,5 @@
 /**
- *
+ * 
  */
 package com.acc.service;
 
@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.acc.customexception.PinCodeNotFoundException;
 import com.acc.dao.PinCodeDAO;
 import com.acc.dto.InfoDTO;
 import com.acc.dto.PinCodeDTO;
@@ -19,26 +18,18 @@ import com.acc.entity.PinCodeEntity;
  *
  */
 @Repository
-public class PincodeInfoServiceImpl implements  InfPincodeInfoService {
+public class PincodeInfoServiceImpl implements PincodeInfoServiceInf {
 
 	Logger log = Logger.getLogger(PincodeInfoServiceImpl.class);
-
+	
 	@Autowired
 	private PinCodeDAO pinCodeDAO;
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/* (non-Javadoc)
 	 * @see com.acc.service.PincodeInfoServiceInf#getPincodeById(int)
 	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.demo#getPincodeById(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.InfPincodeService#getPincodeById(int)
-	 */
 	@Override
-	public PinCodeDTO getPincodeById(int id) throws PinCodeNotFoundException {
+	public PinCodeDTO getPincodeById(int id) throws Exception {
 		PinCodeDTO dto = null;
 		try {
 			PinCodeEntity pen = pinCodeDAO.findOne(id);
@@ -48,34 +39,25 @@ public class PincodeInfoServiceImpl implements  InfPincodeInfoService {
 			}
 		} catch (Exception e) {
 			log.error(e.getMessage());
-			throw e;
+			throw (e);
 		}
 
 		return dto;
 
 	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see com.acc.service.PincodeInfoServiceInf#isPincodeActive(int)
-	 */
-	/* (non-Javadoc)
-	 * @see com.acc.service.demo#isPincodeActive(int)
-	 */
 	
 	/* (non-Javadoc)
-	 * @see com.acc.service.InfPincodeService#isPincodeActive(int)
+	 * @see com.acc.service.PincodeInfoServiceInf#isPincodeActive(int)
 	 */
 	@Override
-	public boolean isPincodeActive(int pincodeId) {
-		boolean status = false;
-		PinCodeEntity en = pinCodeDAO.findByPinCodeId(pincodeId);
-		InfoDTO dto = new InfoDTO();
+	public boolean isPincodeActive(int pincodeId){
+		boolean status=false;
+		PinCodeEntity en=pinCodeDAO.findByPinCodeId(pincodeId);
+		InfoDTO dto=new InfoDTO();
 		BeanUtils.copyProperties(en, dto);
-		String stat = dto.getDeleted();
-		if ("true".equals(stat)) {
-			status = true;
+		String stat=dto.getDeleted();
+		if(stat.equals("true")){
+			status=true;
 		}
 		return status;
 	}

@@ -37,23 +37,12 @@ public class AddressEntity {
 	@Column(name = "isactive")
 	private String stat;
 
-
+	
 
 	public AddressEntity() {
 		super();
-
+		// TODO Auto-generated constructor stub
 	}
-
-	public AddressEntity(int addressId, String address1, String address2,
-	                     UserEntity userEntity, PinCodeEntity pinCodeEntity, String stat) {
-	                 super();
-	                 this.addressId = addressId;
-	                 this.address1 = address1;
-	                 this.address2 = address2;
-	                 this.userEntity = userEntity;
-	                 this.pinCodeEntity = pinCodeEntity;
-	                 this.stat = stat;
-	             }
 
 	public int getAddressId() {
 		return addressId;
@@ -95,7 +84,16 @@ public class AddressEntity {
 		this.pinCodeEntity = pinCodeEntity;
 	}
 
-
+	public AddressEntity(int addressId, String address1, String address2,
+			UserEntity userEntity, PinCodeEntity pinCodeEntity, String stat) {
+		super();
+		this.addressId = addressId;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.userEntity = userEntity;
+		this.pinCodeEntity = pinCodeEntity;
+		this.stat = stat;
+	}
 
 	public String getStat() {
 		return stat;
