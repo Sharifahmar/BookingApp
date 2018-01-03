@@ -474,6 +474,6 @@ public class InfoDTO {
 		this.attendee = attendee;
 		this.isActive = isActive;
 	}
-
     
+
 }
