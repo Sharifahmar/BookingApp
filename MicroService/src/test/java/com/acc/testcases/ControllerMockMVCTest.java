@@ -40,6 +40,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		MvcResult res = result.andReturn();
 		String re = res.getResponse().getContentAsString();
 		int status = res.getResponse().getStatus();
+		@SuppressWarnings("unchecked")
 		List<InfoDTO> dtoList = (List<InfoDTO>) super.covertFromJsonToObject1(
 				re, List.class);
 		Assert.assertTrue(dtoList != null);
