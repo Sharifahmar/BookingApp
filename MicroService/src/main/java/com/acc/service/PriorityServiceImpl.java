@@ -9,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import com.acc.customexception.PinCodeNotFoundException;
 import com.acc.dao.PriorityDAO;
 import com.acc.dao.ProgressDAO;
-import com.acc.dto.PinCodeDTO;
 import com.acc.dto.PriorityDTO;
-import com.acc.entity.PinCodeEntity;
 import com.acc.entity.PriorityEntity;
 import com.acc.entity.ProgressEntity;
 
