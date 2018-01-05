@@ -28,18 +28,19 @@ CREATE TABLE IF NOT EXISTS `address` (
   KEY `userid` (`userid`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`pincodeid`) REFERENCES `pincode` (`pincodeid`),
   CONSTRAINT `address_ibfk_2` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table task_backend.address: ~7 rows (approximately)
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
 INSERT INTO `address` (`addressid`, `address1`, `address2`, `userid`, `pincodeid`, `isactive`) VALUES
 	(8, 'testtttt', 'testttt', 108, 123123, 'false'),
 	(9, 'fdfs', 'abc', 107, 456456, 'false'),
-	(10, 'camp', 'camp', 106, 456456, 'true'),
+	(10, 'camp', 'camp', 106, 456456, 'false'),
 	(11, 'testtttt', 'testttt', 109, 45658, 'true'),
 	(12, 'dff', 'testsfdsfttt', 110, 5958, 'true'),
 	(13, 'jkhj', 'testsfdsfttt', 111, 59858, 'true'),
-	(14, 'pune', 'pune', 112, 44602, 'true');
+	(14, 'pune', 'pune', 112, 44602, 'true'),
+	(15, 'dff', 'testsfdsfttt', 115, 59858, 'true');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 
 
@@ -62,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `meeting` (
 /*!40000 ALTER TABLE `meeting` DISABLE KEYS */;
 INSERT INTO `meeting` (`dateid`, `startdate`, `starttime`, `enddate`, `endtime`, `userid`, `attendee`, `isactive`) VALUES
 	(14, '1212-12-12', '67464', '1213-12-12', '65466', 107, '123', 'false'),
-	(15, '1970-01-18', '12:12:12', '1970-01-18', '12:12:12', 106, '101,104', 'true'),
+	(15, '1970-01-18', '12:12:12', '1970-01-18', '12:12:12', 106, '101,104', 'false'),
 	(16, '2018-01-02', '123', '2018-01-02', '123', 108, '103\'104', 'false');
 /*!40000 ALTER TABLE `meeting` ENABLE KEYS */;
 
@@ -92,6 +93,51 @@ INSERT INTO `pincode` (`pincodeid`, `country`, `state`, `district`, `town`, `vil
 /*!40000 ALTER TABLE `pincode` ENABLE KEYS */;
 
 
+-- Dumping structure for table task_backend.priority
+CREATE TABLE IF NOT EXISTS `priority` (
+  `pid` int(16) NOT NULL AUTO_INCREMENT,
+  `empid` int(16) NOT NULL DEFAULT '0',
+  `title` text NOT NULL,
+  `prioritycreationdate` date NOT NULL,
+  `priorityupdateddate` date NOT NULL,
+  `isactive` varchar(10) NOT NULL,
+  `prioritystartdate` date NOT NULL,
+  `priorityenddate` date NOT NULL,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table task_backend.priority: ~2 rows (approximately)
+/*!40000 ALTER TABLE `priority` DISABLE KEYS */;
+INSERT INTO `priority` (`pid`, `empid`, `title`, `prioritycreationdate`, `priorityupdateddate`, `isactive`, `prioritystartdate`, `priorityenddate`, `status`) VALUES
+	(1, 32164, 'ahmar', '1111-11-11', '1111-11-11', 'true', '2017-12-23', '2017-12-23', 'save'),
+	(2, 6545456, 'ahmarkhan', '1111-11-11', '1111-11-11', 'false', '2017-12-23', '2017-12-23', 'save'),
+	(3, 3245, 'Priority1', '1111-11-11', '1111-11-11', 'true', '2017-12-23', '2017-12-23', 'draft');
+/*!40000 ALTER TABLE `priority` ENABLE KEYS */;
+
+
+-- Dumping structure for table task_backend.progressnote
+CREATE TABLE IF NOT EXISTS `progressnote` (
+  `progressid` int(16) NOT NULL AUTO_INCREMENT,
+  `pid` int(16) NOT NULL,
+  `progressnote` text NOT NULL,
+  `createddate` date NOT NULL,
+  `updateddate` date NOT NULL,
+  `active` varchar(10) NOT NULL,
+  PRIMARY KEY (`progressid`),
+  KEY `priorityid` (`pid`),
+  CONSTRAINT `progressnote_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `priority` (`pid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table task_backend.progressnote: ~2 rows (approximately)
+/*!40000 ALTER TABLE `progressnote` DISABLE KEYS */;
+INSERT INTO `progressnote` (`progressid`, `pid`, `progressnote`, `createddate`, `updateddate`, `active`) VALUES
+	(1, 1, 'shravan', '2017-12-23', '2017-12-23', 'true'),
+	(2, 2, 'singh', '2017-12-25', '2017-12-23', 'false'),
+	(3, 3, 'abcd', '2017-12-23', '2017-12-23', 'true');
+/*!40000 ALTER TABLE `progressnote` ENABLE KEYS */;
+
+
 -- Dumping structure for table task_backend.user
 CREATE TABLE IF NOT EXISTS `user` (
   `userid` int(16) NOT NULL AUTO_INCREMENT,
@@ -111,18 +157,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `isactive` varchar(50) NOT NULL DEFAULT 'true',
   PRIMARY KEY (`userid`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table task_backend.user: ~7 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`userid`, `email`, `password`, `firstname`, `middlename`, `lastname`, `gender`, `dob`, `mobile`, `landline`, `uniqueid`, `relation`, `status`, `image`, `isactive`) VALUES
 	(106, 'shravan@acc.com', 'qwerty', 'Shravan', 'Singh', 'D', 'Male', '11-11-1111', '1231231234', '123123', 123456789, 'TL', 'TL', NULL, 'true'),
-	(107, 'a@email.com', 'qazzaqzasx', 'ahmar', 'akhtar', 'sharif', 'male', '11-11-2111', '6548887', '321654', 123, 'SE', 'SE', NULL, 'false'),
+	(107, 'a@email.com', 'qazzaqzasx', 'ahmar', 'akhtar', 'sharif', 'male', '11-11-2111', '6548887', '321654', 123, 'SE', 'SE', NULL, 'true'),
 	(108, 'ahmar@acc.com', 'qwerty', 'Shravan', 'Singh', 'D', 'Male', '11-11-1111', '123123', '123123', 123456789, 'TL', 'TL', NULL, 'false'),
 	(109, 'b@acc.com', '213', 'ahmar', 'sharif', 'Dsds', 'Female', '11-11-1111', '12623', '123123', 65456, 'TL', 'TL', NULL, 'true'),
 	(110, 'ahc@acc.com', '213', 'shravn', 'sharif', 'Dsds', 'Female', '11-11-1111', '5464646', '123123', 6462, 'TL', 'TL', NULL, 'true'),
 	(111, 'debanth@acc.com', '213', 'deb', 'nath', 'Dsds', 'male', '11-11-1111', '987654', '123123', 2562, 'TL', 'TL', NULL, 'true'),
-	(112, 'abhi@test.com', 'abhi', 'Abhirup', 'rup', 'Debnath', 'Male', '1994-11-11', '123456789', '12345', 123456, 'ASE', 'ASE', '', 'true');
+	(112, 'abhi@test.com', 'abhi', 'Abhirup', 'rup', 'Debnath', 'Male', '1994-11-11', '123456789', '12345', 123456, 'ASE', 'ASE', '', 'true'),
+	(115, 'sharif@acc.com', '979d472a84804b9f647bc185a877a8b5', 'shravn', 'sharif', 'Dsds', 'male', '11-11-1111', '321856', '5844', 642, 'TL', 'TL', NULL, 'true');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
