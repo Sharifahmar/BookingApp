@@ -11,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+/**
+ * This IS PriorityEntity Class
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @Entity
 @Table(name="priority")
 public class PriorityEntity {

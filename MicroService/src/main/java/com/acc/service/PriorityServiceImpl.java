@@ -9,15 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import com.acc.customexception.PinCodeNotFoundException;
 import com.acc.dao.PriorityDAO;
 import com.acc.dao.ProgressDAO;
-import com.acc.dto.PinCodeDTO;
 import com.acc.dto.PriorityDTO;
-import com.acc.entity.PinCodeEntity;
 import com.acc.entity.PriorityEntity;
 import com.acc.entity.ProgressEntity;
 
+/**
+ * This class is PriorityServicImpl
+ * 
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @Profile("MSD_Dev_Profile")
 @Repository
 public class PriorityServiceImpl {
@@ -27,6 +30,13 @@ public class PriorityServiceImpl {
 
 	@Autowired
 	private ProgressDAO progressDAO;
+
+	/**
+	 * This method is used to get All Details from progress and priority
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 
 	public List<PriorityDTO> getAllDetails() throws Exception {
 		List<PriorityDTO> list = new ArrayList<PriorityDTO>();
@@ -47,6 +57,13 @@ public class PriorityServiceImpl {
 
 	}
 
+	/**
+	 * This method is used to add priority in DB
+	 * 
+	 * @param dto
+	 * @return
+	 * @throws Exception
+	 */
 	public Integer addPriority(PriorityDTO dto) throws Exception {
 		try {
 			PriorityEntity priorityEntity = new PriorityEntity();
@@ -65,6 +82,13 @@ public class PriorityServiceImpl {
 		}
 	}
 
+	/**
+	 * . This method is used to updatePriority priority in DB
+	 * 
+	 * @param dto
+	 * @return
+	 * @throws Exception
+	 */
 	public Integer updatePriority(PriorityDTO dto) throws Exception {
 		Object obj = null;
 		try {
@@ -90,6 +114,11 @@ public class PriorityServiceImpl {
 			return 0;
 	}
 
+	/**
+	 * This method is used to soft delete the priority
+	 * 
+	 * @param uid
+	 */
 	public void deletePriority(int uid) {
 		try {
 			String statusChange = "false";
@@ -111,6 +140,13 @@ public class PriorityServiceImpl {
 		}
 	}
 
+	/**
+	 * This method is used to find progress Id
+	 * 
+	 * @param uid
+	 * @return
+	 */
+
 	public Boolean findByPid(int id) {
 		PriorityEntity entity = new PriorityEntity();
 		try {
@@ -127,6 +163,13 @@ public class PriorityServiceImpl {
 
 	}
 
+	/**
+	 * This method is used to find status of progress
+	 * 
+	 * @param id
+	 * @return
+	 */
+
 	public PriorityEntity findByStatus(int id) {
 		PriorityEntity entity = new PriorityEntity();
 		try {
@@ -138,6 +181,11 @@ public class PriorityServiceImpl {
 		return entity;
 
 	}
+	
+	/**
+	 * This method is used to hard delete the priority if status is draft
+	 * @param uid
+	 */
 
 	public void hardDeletePriority(int uid) {
 		try {
@@ -155,7 +203,12 @@ public class PriorityServiceImpl {
 			throw e;
 		}
 	}
-
+/**
+ * This method is used to getPriority by ID
+ * @param id
+ * @return
+ * @throws Exception
+ */
 	public PriorityDTO getPriorityById(int id) throws Exception {
 		PriorityDTO priorityDTO = null;
 

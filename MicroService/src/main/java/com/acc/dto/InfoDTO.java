@@ -3,7 +3,11 @@ package com.acc.dto;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
-
+/**
+ * This is Info DTO
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @XmlRootElement
 public class InfoDTO {
 

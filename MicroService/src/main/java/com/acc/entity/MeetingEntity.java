@@ -13,7 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * This Is MeetingEntity Class
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @Entity
 @Table(name = "Meeting")
 public class MeetingEntity {

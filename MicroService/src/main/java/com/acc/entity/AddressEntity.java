@@ -10,7 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * This Is AddressEntity Class
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @Entity
 @Table(name = "address")
 public class AddressEntity {

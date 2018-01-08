@@ -1,7 +1,11 @@
 package com.acc.dto;
 
 import java.util.Date;
-
+/**
+ * This is PriorityDTO
+ * @author ahmar.akhtar.sharif
+ *
+ */
 
 public class PriorityDTO {
 

@@ -14,7 +14,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * This is ProgressNoteEntity Class
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @Entity
 @Table(name="progressnote")
 public class ProgressEntity {

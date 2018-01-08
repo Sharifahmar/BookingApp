@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author s.nemalikonda
  *
- */
-/*
- * This is spring boot application class used to boostrap the spring boot
+ ** This is spring boot application class used to boostrap the spring boot
  * application
  */
+
+
 @SpringBootApplication
 public class Application {
 

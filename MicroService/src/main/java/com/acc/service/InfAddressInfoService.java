@@ -1,5 +1,9 @@
 package com.acc.service;
-
+/**
+ * This is AddressService Interface
+ * @author ahmar.akhtar.sharif
+ *
+ */
 public interface InfAddressInfoService {
 
 	/**

@@ -377,7 +377,7 @@ public class Controller {
 	 * @return
 	 * @throws Exception
 	 */
-	@ApiOperation(httpMethod = "GET", value = "getAllUsers", nickname = "getAllUsers")
+	@ApiOperation(httpMethod = "GET", value = "getAllPriority", nickname = "getAllUsers")
 	@ApiImplicitParams({ @ApiImplicitParam(name = "none", value = "none", required = false, dataType = "none", paramType = "none", defaultValue = "none") })
 	@ApiResponses(value = {
 			@ApiResponse(code = 200, message = "Success", response = ResponseEntity.class),

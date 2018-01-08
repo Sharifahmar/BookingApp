@@ -5,7 +5,7 @@ package com.acc.customresponse;
 
 /**
  * @author ahmar.akhtar.sharif
- *
+ *This class is used to send user defined response
  */
 public class CustomResponse {
 

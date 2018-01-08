@@ -1,7 +1,11 @@
 package com.acc.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
-
+/**
+ * This is PinCodeDTO
+ * @author ahmar.akhtar.sharif
+ *
+ */
 @XmlRootElement
 public class PinCodeDTO {
 

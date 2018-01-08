@@ -8,6 +8,12 @@ import com.acc.dto.InfoDTO;
 import com.acc.dto.LoginDTO;
 import com.acc.dto.PinCodeDTO;
 
+/**
+ * This is userInfoService interface
+ * 
+ * @author ahmar.akhtar.sharif
+ *
+ */
 public interface InfUserInfoService {
 
 	/**
