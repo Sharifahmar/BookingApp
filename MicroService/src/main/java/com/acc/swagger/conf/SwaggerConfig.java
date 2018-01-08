@@ -11,11 +11,7 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-/**
- * This class is swagger configuration class
- * @author ahmar.akhtar.sharif
- *
- */
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -41,3 +37,17 @@ public class SwaggerConfig {
     }
 }
 
+/*
+ * Swagger 2 is enabled through the @EnableSwagger2 annotation.
+ * 
+ * After the Docket bean is defined, its select() method returns an instance of
+ * ApiSelectorBuilder, which provides a way to control the endpoints exposed by
+ * Swagger.
+ * 
+ * Predicates for selection of RequestHandlers can be configured with the help
+ * of RequestHandlerSelectors and PathSelectors. Using any() for both will make
+ * documentation for your entire API available through Swagger.
+ * 
+ * This configuration is enough to integrate Swagger 2 into existing Spring Boot
+ * project. For other Spring projects, some additional tuning is required.
+ */

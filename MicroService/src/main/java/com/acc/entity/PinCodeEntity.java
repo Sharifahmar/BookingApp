@@ -4,11 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-/**
- * This is PincodeEntity class
- * @author ahmar.akhtar.sharif
- *
- */
+
 @Entity
 @Table(name = "pincode")
 public class PinCodeEntity {

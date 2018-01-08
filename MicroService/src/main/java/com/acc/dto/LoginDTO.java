@@ -1,11 +1,7 @@
 package com.acc.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
-/**
- * this is loginDTO
- * @author ahmar.akhtar.sharif
- *
- */
+
 @XmlRootElement
 public class LoginDTO {
 

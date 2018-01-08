@@ -1,3 +1,6 @@
+/**
+ *
+ */
 package com.acc.service;
 
 import org.apache.log4j.Logger;
@@ -13,13 +16,12 @@ import com.acc.dto.PinCodeDTO;
 import com.acc.entity.PinCodeEntity;
 
 /**
- * @author ahmar.akhtar.sharif 
- * This is PincodeInfoSeviceImpl class
+ * @author ahmar.akhtar.sharif
  *
  */
-@Profile("MSD_Dev_Profile")
+@Profile("MSD_Dev_Profile") 
 @Repository
-public class PincodeInfoServiceImpl implements InfPincodeInfoService {
+public class PincodeInfoServiceImpl implements  InfPincodeInfoService {
 
 	Logger log = Logger.getLogger(PincodeInfoServiceImpl.class);
 

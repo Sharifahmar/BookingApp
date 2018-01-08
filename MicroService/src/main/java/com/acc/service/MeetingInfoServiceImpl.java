@@ -20,7 +20,6 @@ import com.acc.entity.UserEntity;
 
 /**
  * @author ahmar.akhtar.sharif
- * This is MeetingServiceImpl class
  *
  */
 @Profile("MSD_Dev_Profile")

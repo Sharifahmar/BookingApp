@@ -63,7 +63,6 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 				BeanUtils.copyProperties(x.getUserEntity(), dto);
 				BeanUtils.copyProperties(x.getPinCodeEntity(), dto);
 				list.add(dto);
-
 			});
 		} catch (Exception e) {
 			log.error(e.getMessage());

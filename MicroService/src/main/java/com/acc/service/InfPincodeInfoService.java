@@ -2,11 +2,7 @@ package com.acc.service;
 
 import com.acc.customexception.PinCodeNotFoundException;
 import com.acc.dto.PinCodeDTO;
-/**
- * this is Interface for PincodeinfoSevice
- * @author ahmar.akhtar.sharif
- *
- */
+
 public interface InfPincodeInfoService {
 
 	/**

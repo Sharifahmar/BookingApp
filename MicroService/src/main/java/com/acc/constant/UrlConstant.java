@@ -5,7 +5,7 @@ package com.acc.constant;
 
 /**
  * @author ahmar.akhtar.sharif
- *This class is UrlConstant used to declare the final variable for controller class
+ *
  */
 public class UrlConstant {
 
