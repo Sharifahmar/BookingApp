@@ -24,6 +24,7 @@ import com.acc.dto.PriorityDTO;
 import com.acc.test.AbstractControllerTestClass;
 import com.acc.wrapper.DateIdWrapper;
 
+//@Profile("MSD_Dev_Profile")
 @Transactional
 public class ControllerMockMVCTest extends AbstractControllerTestClass {
 
@@ -34,7 +35,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		super.mySetup();
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testGetAllUsers() throws Exception {
 		String uri = "/usercontroller/getAllUsers";
@@ -50,7 +51,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(status == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testGetPincodeById() throws Exception {
 		String uri = "/user/controller/getPincodeByPincode/123123";
@@ -66,7 +67,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(status == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAddUser() throws Exception {
 		String uri = "/user/controller/User/";
@@ -92,7 +93,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testUpdateUser() throws Exception {
 		String uri = "/user/controller/updateUser";
@@ -118,7 +119,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testDeleteUser() throws Exception {
 		String uri = "/user/controller/deleteUser/108";
@@ -135,7 +136,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(status == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testLogin() throws Exception {
 		String uri = "/user/controller/login";
@@ -156,7 +157,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAddMeeting() throws Exception {
 		String uri = "/user/controller/meeting";
@@ -183,7 +184,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testUpdateMeeting() throws Exception {
 		String uri = "/user/controller/updateMeeting";
@@ -208,7 +209,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testCancelMeeting() throws Exception {
 		String uri = "/user/controller/cancelMeeting";
@@ -229,7 +230,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAllPriority() throws Exception {
 		String uri = "/priority/controller/getAllPriority";
@@ -245,7 +246,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(status == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testAddPriority() throws Exception {
 		String uri = "/priority/controller/addPriority";
@@ -268,7 +269,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testUpdatePriority() throws Exception {
 		String uri = "/priority/controller/updatePriority";
@@ -290,7 +291,7 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(actualStatus == HttpStatus.OK.value());
 	}
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testDeletePriority() throws Exception {
 		String uri = "/priority/controller/deletePriority/8";
@@ -307,7 +308,8 @@ public class ControllerMockMVCTest extends AbstractControllerTestClass {
 		Assert.assertTrue(status == HttpStatus.OK.value());
 	}
 
-	@Test
+	
+//	@Test
 	public void testGetPriorityId() throws Exception {
 		String uri = "/priority/controller/getPriority/8";
 		MockHttpServletRequestBuilder request = MockMvcRequestBuilders.get(uri);
