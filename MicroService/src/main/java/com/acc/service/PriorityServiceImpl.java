@@ -15,7 +15,7 @@ import com.acc.dto.PriorityDTO;
 import com.acc.entity.PriorityEntity;
 import com.acc.entity.ProgressEntity;
 
-@Profile("MSD_Dev_Profile")
+//@Profile("MSD_Dev_Profile")
 @Repository
 public class PriorityServiceImpl {
 	Logger log = Logger.getLogger(PriorityServiceImpl.class);

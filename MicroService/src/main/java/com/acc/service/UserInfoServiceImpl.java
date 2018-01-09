@@ -25,7 +25,7 @@ import com.acc.entity.PinCodeEntity;
 import com.acc.entity.UserEntity;
 
 @Repository
-@Profile("MSD_Dev_Profile")
+//@Profile("MSD_Dev_Profile")
 public class UserInfoServiceImpl implements InfUserInfoService {
 
 	Logger log = Logger.getLogger(UserInfoServiceImpl.class);

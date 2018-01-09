@@ -16,7 +16,7 @@ import com.acc.entity.AddressEntity;
  * @author ahmar.akhtar.sharif
  *
  */
-@Profile("MSD_Dev_Profile") 
+//@Profile("MSD_Dev_Profile") 
 @Repository
 public class AddressInfoServiceImpl implements InfAddressInfoService {
 

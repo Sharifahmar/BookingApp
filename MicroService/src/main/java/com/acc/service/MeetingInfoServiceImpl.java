@@ -22,7 +22,7 @@ import com.acc.entity.UserEntity;
  * @author ahmar.akhtar.sharif
  *
  */
-@Profile("MSD_Dev_Profile")
+//@Profile("MSD_Dev_Profile")
 @Repository
 public class MeetingInfoServiceImpl implements InfMeetingInfoService {
 	@Autowired
