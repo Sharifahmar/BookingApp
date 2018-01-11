@@ -25,7 +25,7 @@ import com.acc.entity.PinCodeEntity;
 import com.acc.entity.UserEntity;
 
 @Repository
-//@Profile("MSD_Dev_Profile")
+// @Profile("MSD_Dev_Profile")
 public class UserInfoServiceImpl implements InfUserInfoService {
 
 	Logger log = Logger.getLogger(UserInfoServiceImpl.class);
@@ -289,26 +289,25 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 		UserEntity userEntity;
 		userEntity = userDAO.loginByUserName(loginDTO.getUsername());
 		String password = loginDTO.getPassword();
-
 		MessageDigest md = MessageDigest.getInstance("MD5");
 		md.update(password.getBytes());
-
 		byte byteData[] = md.digest();
-
 		// convert the byte to hex format method 1
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < byteData.length; i++) {
 			sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16)
 					.substring(1));
 		}
-
 		loginDTO.setPassword(sb.toString());
-
-		if (userEntity != null) {
-			getInfoDTO(dto, userEntity, loginDTO);
+		// loginDTO.setPassword(password);
+		if (loginDTO.getPassword().equals(userEntity.getPassword())) {
+			if (userEntity != null) {
+				getInfoDTO(dto, userEntity, loginDTO);
+			}
 		} else {
 			dto = null;
 		}
+
 		return dto;
 	}
 
