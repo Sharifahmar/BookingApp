@@ -210,8 +210,10 @@ public class UserInfoServiceImpl implements InfUserInfoService {
 		try {
 			String statusChange = "false";
 			MeetingEntity meetingEntity = meetingDAO.findMeetingId(uid);
-			meetingEntity.setIsActive(statusChange);
-			meetingDAO.save(meetingEntity);
+			if (meetingEntity != null) {
+				meetingEntity.setIsActive(statusChange);
+				meetingDAO.save(meetingEntity);
+			}
 			AddressEntity addressEntity = addressDAO.findAddressbyUserId(uid);
 			addressEntity.setStat(statusChange);
 			UserEntity userEntity = userDAO.findByUserId(addressEntity

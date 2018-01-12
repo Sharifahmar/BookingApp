@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.acc.profiles;
 
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
