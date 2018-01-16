@@ -530,4 +530,27 @@ public class Controller {
 		return new ResponseEntity<>(priorityDTO, HttpStatus.OK);
 
 	}
+	
+//	  @POST
+//	    @Path("/upload")
+//	    @Consumes(javax.ws.rs.core.MediaType.MULTIPART_FORM_DATA)
+//	    @RequestMapping(value = UrlConstant.UPLOAD_FILE, method = RequestMethod.POST)
+//	    public Response uploadFile(@FormDataParam("file") InputStream uploadedInputStream) {
+//
+//	        try {
+//	            createFolderIfNotExists(UPLOAD_FOLDER);
+//	        } catch (SecurityException se) {
+//	            return Response.status(500)
+//	                .entity("Can not create destination folder on server").build();
+//	        }
+//
+//	        writeToFile(uploadedInputStream, UPLOAD_FOLDER + new Timestamp(System.currentTimeMillis()));
+//
+//	        String output = "File uploaded to : " + UPLOAD_FOLDER;
+//
+//	        return Response.status(200).entity(output).build();
+//
+//	    }
+
+	
 }
